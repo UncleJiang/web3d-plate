@@ -23,7 +23,6 @@ transformControl.addEventListener('dragging-changed', (e) => {
 
 transformControl.attach(mesh)
 
-// TODO: 根据用户点击 选择attach物体  single-click  attach   double-click  invisible
 window.addEventListener('keydown', (e) => {
     console.log('key:   ', e.key)
     console.log('window: ', window)
@@ -53,13 +52,26 @@ window.addEventListener('keydown', (e) => {
     }
 })
 
-window.addEventListener('click', (e) => {
-    console.log('click listener: ')
-    transformControl.visible = true // TODO: 添加上前置条件： 如果选中了物体
-})
+const raycaster = new THREE.Raycaster()
+const pointer = new THREE.Vector2()
+
 window.addEventListener('dblclick', (e) => {
-    console.log('dblclick listener')
-    transformControl.visible = false
+    // calculate the pointer position, -1 to +1
+    pointer.x = (e.clientX / window.innerWidth) * 2 - 1
+    pointer.y = - (e.clientY / window.innerHeight) * 2 + 1
+
+    raycaster.setFromCamera(pointer, camera)
+    // TODO: configure the raycaster's threshold
+    const intersects = raycaster.intersectObjects(scene.children)
+
+
+    if (intersects.length <= 1) { // no valid object casted
+        transformControl.visible = false
+    } else if (intersects[0]?.object?.isObject3D) {
+        // attach the transformControl to the selected object
+        transformControl.attach(intersects[0].object)
+        transformControl.visible = true
+    }
 })
 
 export default transformControl
