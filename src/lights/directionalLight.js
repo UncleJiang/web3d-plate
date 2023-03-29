@@ -7,7 +7,7 @@ const directionalLight = () => {
     const lightFolder = gui.addFolder('light')
 
     const lightParams = {
-        directionalLightCoor: {x: 0, y: 0, z: 0},
+        directionalLightCoor: {x: 0, y: 13, z: 0},
         directionalLightColor: {string: '#00d0ff'},
         directionalLightIntensity: 0.5,
         lightToTarget: {x: 0, y: -2, z: -2},
@@ -40,7 +40,8 @@ const directionalLight = () => {
     const helper = new THREE.DirectionalLightHelper(directionalLight, 5)
 
     const onLightChange = function() {
-        directionalLight.position.set(lightParams.directionalLightCoor.x, lightParams.directionalLightCoor.y, lightParams.directionalLightCoor.z) // 有没有问题，需不需要this来指向，要不要改成类的写法
+        directionalLight.position.set(lightParams.directionalLightCoor.x, lightParams.directionalLightCoor.y, lightParams.directionalLightCoor.z)
+        directionalLight.color.set(lightParams.directionalLightColor.string)
         helper.visible = lightParams.showLightHelper
     }
 

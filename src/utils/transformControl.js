@@ -13,6 +13,7 @@ const {
 } = basicSetting
 
 const transformControl = new TransformControls(camera, canvas)
+
 transformControl.addEventListener('change', (e) => {
     renderer.render(scene, camera)
 })
@@ -53,6 +54,10 @@ window.addEventListener('keydown', (e) => {
 })
 
 const raycaster = new THREE.Raycaster()
+// TODO: fix
+// only cast objects on layer 2
+// raycaster.layers.set(2)
+
 const pointer = new THREE.Vector2()
 
 window.addEventListener('dblclick', (e) => {
@@ -63,7 +68,7 @@ window.addEventListener('dblclick', (e) => {
     raycaster.setFromCamera(pointer, camera)
     // TODO: configure the raycaster's threshold
     const intersects = raycaster.intersectObjects(scene.children)
-
+    console.log('ray intersects[]: ', intersects)
 
     if (intersects.length <= 1) { // no valid object casted
         transformControl.visible = false

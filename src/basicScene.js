@@ -5,7 +5,12 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import gui from './utils/gui.js'
 
 // common config
-gui.addFolder('Common')
+const commonFolder = gui.addFolder('Common')
+const commonParams = {
+    CONTAINER_RADIUS: 80,
+}
+commonFolder.add(commonParams, 'CONTAINER_RADIUS', 40, 120, 5)
+
 
 
 // canvas
@@ -41,7 +46,8 @@ const scene = new THREE.Scene()
 // camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight)
 scene.add(camera)
-camera.position.z = 10
+camera.position.y = 19.7
+camera.position.z = 40.7
 
 // control
 const orbitControl = new OrbitControls(camera, canvas)
@@ -76,6 +82,7 @@ const basicSetting = {
     renderer,
     mesh,
     orbitControl,
+    commonParams,
 }
 
 
