@@ -25,11 +25,11 @@ export default class TimeText {
         bevelSegments: 4,
     }
     textMaterialParams = {
-        color: {string: '#ffffff'},
+        color: { string: '#ffffff' },
         reflectivity: 0.5,
         roughness: 0.5,
         metalness: 0.5,
-        emissive: {string: '#ffffff'},
+        emissive: { string: '#ffffff' },
         emissiveIntensity: 0.5,
         opacity: 0.8,
         transparent: true,
@@ -54,7 +54,7 @@ export default class TimeText {
         this.renderGroup.name = name
         this.renderGroup.layers.enable(2)
 
-        this.timeFormatter = new Intl.DateTimeFormat("en-US", this.timeOptions)
+        this.timeFormatter = new Intl.DateTimeFormat('en-US', this.timeOptions)
         this.textStr = this.timeFormatter.format(Date.now())
         this.initGuiFolder()
         this.load()
@@ -114,7 +114,7 @@ export default class TimeText {
         this.material.emissiveIntensity = this.textMaterialParams.emissiveIntensity
         this.material.opacity = this.textMaterialParams.opacity
         this.material.transparent = this.textMaterialParams.transparent
-    
+
         this.textMesh.material = this.material
     }
 
@@ -132,11 +132,11 @@ export default class TimeText {
 
     setTimeOptions(options) {
         this.timeOptions = options
-        this.timeFormatter = new Intl.DateTimeFormat("en-US", this.timeOptions)
+        this.timeFormatter = new Intl.DateTimeFormat('en-US', this.timeOptions)
         this.refreshText()
     }
 
-    getRenderGroup () {
+    getRenderGroup() {
         return this.renderGroup
     }
 }

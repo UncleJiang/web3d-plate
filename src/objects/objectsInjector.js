@@ -29,7 +29,7 @@ objects.push(fog) // TODO: 单独的对scene的属性进行设置
 
 export const addObjects = () => {
     const scene = basicSetting.scene
-    
+
     if (!scene) return
 
     for (let obj of objects) {
@@ -45,7 +45,3 @@ export const objectsOnChange = () => {
         obj.onMeshChange?.(scene)
     }
 }
-
-
-
-

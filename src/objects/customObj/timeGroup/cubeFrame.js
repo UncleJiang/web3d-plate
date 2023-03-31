@@ -6,7 +6,6 @@ import gui from '../../../utils/gui.js'
 const cubeFrame = () => {
 
     // 使用curve -> tubeGeometry -> 通过顶点上色达到碎玻璃的质感
-    const lineCurvePath = new THREE.CurvePath()
     const lineSize = 10
     const lineCurveObject = {
         lineCurve1: new THREE.LineCurve3(
@@ -94,7 +93,7 @@ const cubeFrame = () => {
     for (let i = 0; i < 12; i ++) {
 
         const cubeGeometry = new THREE.TubeGeometry(
-            lineCurveObject[`lineCurve${i+1}`],
+            lineCurveObject[`lineCurve${i + 1}`],
             cubeGeometryParams.segements,
             cubeGeometryParams.radius,
             cubeGeometryParams.radialSegment

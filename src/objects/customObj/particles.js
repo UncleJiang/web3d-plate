@@ -10,10 +10,10 @@ const particles = () => {
     const positions = new Float32Array(count * 3)
     const maxWidth = (commonParams.CONTAINER_RADIUS - 10) * 2
 
-    for(let i = 0; i < count * 3; i++)
+    for (let i = 0; i < count * 3; i++)
     {
         positions[i] = (i % 3 == 1)
-            ? Math.random() * 10  // on y axis
+            ? Math.random() * 10 // on y axis
             : (Math.random() - 0.5) * maxWidth
     }
 
@@ -32,16 +32,16 @@ const particles = () => {
 
     const onParticlesChange = () => {
         const { position: particlePosition } = particlesGeometry.attributes
-        for(let i = 0; i < count; i++) {
+        for (let i = 0; i < count; i++) {
             const i3 = i * 3
             if (particlePosition.array[i3] > endPositionX) {
                 particlePosition.array[i3] = startPositionX
             }
-            particlePosition.array[i3] += Math.random() * 0.06  // * 0.01
+            particlePosition.array[i3] += Math.random() * 0.06 // * 0.01
             particlePosition.array[i3 + 1] += (Math.random() - 0.5) * 0.0001
             particlePosition.array[i3 + 2] += (Math.random() - 0.5) * 0.0001
         }
-        particlePosition.needsUpdate = true 
+        particlePosition.needsUpdate = true
     }
 
     return {

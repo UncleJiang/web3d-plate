@@ -29,7 +29,6 @@ const fog = () => {
         } else {
             scene.fog = null
         }
-        
     }
 
     return {

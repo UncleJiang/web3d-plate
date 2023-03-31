@@ -1,6 +1,5 @@
 import * as THREE from 'three'
 
-import gui from './gui.js'
 import basicSetting from '../basicScene.js'
 
 /*
@@ -48,7 +47,7 @@ const switchSnapshot = () => {
     const { scene } = basicSetting
 
     for (const [key, value] of Object.entries(appliedSnapshot)) {
-        console.log('switch: ',currSnapshotIndex, key, value)
+        console.log('switch: ', currSnapshotIndex, key, value)
         const obj = scene.getObjectByName(`${key}`)
 
         // TODO： 应用matrix与matrixWorld来修改

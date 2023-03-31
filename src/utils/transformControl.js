@@ -27,11 +27,11 @@ transformControl.attach(mesh)
 window.addEventListener('keydown', (e) => {
     console.log('key:   ', e.key)
     console.log('window: ', window)
-    switch(e.key) {
+    switch (e.key) {
         case 'Shift':
-            control.setTranslationSnap( null )
-            control.setRotationSnap( null )
-            control.setScaleSnap( null )
+            transformControl.setTranslationSnap( null )
+            transformControl.setRotationSnap( null )
+            transformControl.setScaleSnap( null )
             break
         case 'r':
         case 'R':
@@ -48,7 +48,7 @@ window.addEventListener('keydown', (e) => {
         case 'Escape': // escape the full screen mode  // TODO: 将无关的操作分开
             document.fullscreenElement && document.exitFullscreen()
             break
-        default: 
+        default:
             return
     }
 })

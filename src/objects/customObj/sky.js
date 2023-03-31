@@ -21,7 +21,7 @@ const sky = () => {
         mieDirectionalG: 0.7,
         elevation: 2,
         azimuth: 180,
-        up: {x: 0, y: 1, z: 0}
+        up: { x: 0, y: 1, z: 0 }
     }
 
     const folder = gui.addFolder('Sky')
@@ -42,16 +42,16 @@ const sky = () => {
         uniforms['rayleigh'].value = skyParams.rayleigh
         uniforms['mieCoefficient'].value = skyParams.mieCoefficient
         uniforms['mieDirectionalG'].value = skyParams.mieDirectionalG
-        
+
         const upVec3 = new THREE.Vector3(skyParams.up.x, skyParams.up.y, skyParams.up.z)
         uniforms['up'].value.copy(upVec3)
-    
+
         const phi = THREE.MathUtils.degToRad(90 - skyParams.elevation)
         const theta = THREE.MathUtils.degToRad(skyParams.azimuth)
-    
+
         sun.setFromSphericalCoords(1, phi, theta)
         uniforms['sunPosition'].value.copy(sun)
-    
+
     }
 
     return {

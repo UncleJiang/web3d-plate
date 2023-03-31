@@ -41,7 +41,7 @@ const terrain = () => {
         angle: 0.5
     }
 
-    const textureArr =[
+    const textureArr = [
         colorTexture,
         normalTexture,
         ambientOcclusionTexture,
@@ -172,8 +172,8 @@ const terrain = () => {
     `
 
     const uniformParams = {
-        uyOffset: {value: 0.5},
-        uyMultiplier: {value: 2.0}
+        uyOffset: { value: 0.5 },
+        uyMultiplier: { value: 2.0 }
     }
 
     terrainFolder.add(uniformParams.uyMultiplier, 'value', 0, 10, 0.1).name('yMultiplier')
@@ -197,7 +197,7 @@ const terrain = () => {
         shader.vertexShader = shader.vertexShader.replace('#include <common>', commonText)
         shader.vertexShader = shader.vertexShader.replace('#include <beginnormal_vertex>', beginnormalVertexText)
         shader.vertexShader = shader.vertexShader.replace('#include <begin_vertex>', beginVertexText)
-        
+
     }
     console.log('hahahahah terrain')
     const mesh = new THREE.Mesh(geometry, material)

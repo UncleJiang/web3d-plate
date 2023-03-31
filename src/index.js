@@ -1,7 +1,4 @@
 import './style.css'
-import * as THREE from 'three'
-
-import gui from './utils/gui.js'
 
 import basicSetting from './basicScene.js'
 import { addObjects, objectsOnChange } from './objects/objectsInjector.js'

@@ -1,5 +1,3 @@
-import * as THREE from 'three'
-
 import basicSetting from '../basicScene.js'
 import directionalLight from './directionalLight.js'
 

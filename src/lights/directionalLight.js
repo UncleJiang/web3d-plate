@@ -7,12 +7,12 @@ const directionalLight = () => {
     const lightFolder = gui.addFolder('light')
 
     const lightParams = {
-        directionalLightCoor: {x: 0, y: 13, z: 0},
-        directionalLightColor: {string: '#00d0ff'},
+        directionalLightCoor: { x: 0, y: 13, z: 0 },
+        directionalLightColor: { string: '#00d0ff' },
         directionalLightIntensity: 0.5,
-        lightToTarget: {x: 0, y: -2, z: -2},
-        pointLightCoor: {x: 0, y: 10, z: 0},
-        pointLightColor: {string: '#ff9000'},
+        lightToTarget: { x: 0, y: -2, z: -2 },
+        pointLightCoor: { x: 0, y: 10, z: 0 },
+        pointLightColor: { string: '#ff9000' },
         pointLightIntensity: 0.5,
         showLightHelper: true,
     }
@@ -34,13 +34,17 @@ const directionalLight = () => {
     directionalLightTarget.position.set(0, 3, 0)
 
 
-    const directionalLight = new THREE.DirectionalLight('#00d6ff', 0.5)   // TODO: check 不能自动应用depthmatetial, shadow不正确
+    const directionalLight = new THREE.DirectionalLight('#00d6ff', 0.5) // TODO: check 不能自动应用depthmatetial, shadow不正确
     directionalLight.position.set(0, 0, 0)
     directionalLight.target = directionalLightTarget
     const helper = new THREE.DirectionalLightHelper(directionalLight, 5)
 
     const onLightChange = function() {
-        directionalLight.position.set(lightParams.directionalLightCoor.x, lightParams.directionalLightCoor.y, lightParams.directionalLightCoor.z)
+        directionalLight.position.set(
+            lightParams.directionalLightCoor.x,
+            lightParams.directionalLightCoor.y,
+            lightParams.directionalLightCoor.z
+        )
         directionalLight.color.set(lightParams.directionalLightColor.string)
         helper.visible = lightParams.showLightHelper
     }

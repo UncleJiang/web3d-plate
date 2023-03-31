@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack --config ./bundler/webpack.prod.js",
     "dev": "webpack serve --config ./bundler/webpack.dev.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint --max-warnings 500 'src/**/*.js'",
+    "eslint:fix": "eslint --max-warnings 500 'src/**/*.js' --fix"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +17,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
+    "eslint": "^8.37.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "ip": "^1.1.8",

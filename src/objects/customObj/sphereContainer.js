@@ -11,7 +11,7 @@ const sphereContainer = () => {
     })
     const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial)
     sphere.name = 'sphereContainer'
-    
+
     return {
         mesh: sphere
     }
