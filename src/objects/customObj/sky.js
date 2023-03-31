@@ -1,14 +1,15 @@
 import * as THREE from 'three'
 import { Sky } from 'three/examples/jsm/objects/Sky.js'
 
-import gui from '../../utils/gui'
-import basicSetting from '../../basicScene.js'
+import gui from '../../utils/gui.js'
+import commonParams from '../../common.js'
 
 const sky = () => {
     const sky = new Sky()
+    sky.name = 'sky'
     const sphereGeometry = new THREE.SphereGeometry(1)
     sky.geometry.copy(sphereGeometry)
-    sky.scale.setScalar(basicSetting.commonParams.CONTAINER_RADIUS - 10)
+    sky.scale.setScalar(commonParams.CONTAINER_RADIUS - 10)
 
     const sun = new THREE.Vector3(-20, 40, -10)
     sky.material.uniforms['sunPosition'].value.copy(sun)

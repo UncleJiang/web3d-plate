@@ -1,14 +1,14 @@
 import * as THREE from 'three'
 
 import gui from '../../utils/gui.js'
-import basicSetting from '../../basicScene.js'
+import commonParams from '../../common.js'
 
 const particles = () => {
     const particlesGeometry = new THREE.BufferGeometry()
     const count = 800
 
     const positions = new Float32Array(count * 3)
-    const maxWidth = (basicSetting.commonParams.CONTAINER_RADIUS - 10) * 2
+    const maxWidth = (commonParams.CONTAINER_RADIUS - 10) * 2
 
     for(let i = 0; i < count * 3; i++)
     {
@@ -25,6 +25,7 @@ const particles = () => {
     })
 
     const particles = new THREE.Points(particlesGeometry, particlesMaterial)
+    particles.name = 'dustParticles'
 
     const startPositionX = - maxWidth * 0.5
     const endPositionX = maxWidth * 0.5

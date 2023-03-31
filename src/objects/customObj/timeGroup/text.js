@@ -50,7 +50,7 @@ export default class TimeText {
 
     constructor(name = '') {
         this.name = name
-        this.renderGroup = new THREE.Group()
+        this.renderGroup = new THREE.Group() // TODO: 以group为单位给transformControl附着
         this.renderGroup.name = name
         this.renderGroup.layers.enable(2)
 

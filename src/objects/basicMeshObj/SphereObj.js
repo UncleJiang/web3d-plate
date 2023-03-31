@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import gui from '../../utils/gui'
+import gui from '../../utils/gui.js'
 
 
 class SphereObj {
@@ -12,10 +12,11 @@ class SphereObj {
     geometry = null
     material = null
     _mesh = null
+    name = ''
     
-    constructor () {
-
-        this.folder = gui.addFolder('sphere') // TODO: 需要重新赋值用传入的名字
+    constructor (name = 'sphere') {
+        this.name = name
+        this.folder = gui.addFolder(name)
         this.folder.add(this.params, 'radius', 1, 10, 0.5)
         this.folder.add(this.params, 'visible')
         this.folder.add(this.params, 'enableAnim')
@@ -23,12 +24,19 @@ class SphereObj {
         this.geometry = new THREE.SphereGeometry(this.params.radius)
         this.material = new THREE.MeshBasicMaterial({color: '#fff'})
         this._mesh = new THREE.Mesh(this.geometry, this.material)
+        this._mesh.name = name
         this._mesh.position.x = 4
     }
 
     get mesh () {
         console.log('get sphere mesh')
         return this._mesh
+    }
+
+    set name (name) {
+        this.name = name
+        this.folder.name = name
+        this._mesh.name = name
     }
 
     onMeshChange () {

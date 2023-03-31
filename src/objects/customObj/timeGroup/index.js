@@ -4,6 +4,7 @@ import TimeText from './text.js'
 import cubeFrame from './cubeFrame.js'
 
 const timeGroup = new THREE.Group()
+timeGroup.name = 'timeGroup'
 
 const timeText = new TimeText('majorTime').getRenderGroup()
 timeGroup.add(timeText)

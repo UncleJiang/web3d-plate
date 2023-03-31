@@ -2,15 +2,7 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
-import gui from './utils/gui.js'
-
-// common config
-const commonFolder = gui.addFolder('Common')
-const commonParams = {
-    CONTAINER_RADIUS: 80,
-}
-commonFolder.add(commonParams, 'CONTAINER_RADIUS', 40, 120, 5)
-
+// import gui from './utils/gui.js'
 
 
 // canvas
@@ -45,6 +37,7 @@ const scene = new THREE.Scene()
 
 // camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight)
+camera.name = 'mainCamera'
 scene.add(camera)
 camera.position.y = 19.7
 camera.position.z = 40.7
@@ -58,7 +51,7 @@ orbitControl.update()
 const renderer = new THREE.WebGL1Renderer({ canvas: canvas })
 
 
-// objects
+// example object
 const geometry = new THREE.BoxGeometry(3, 3, 3)
 const material = new THREE.MeshBasicMaterial({color: '#fff'})
 const mesh = new THREE.Mesh(geometry, material)
@@ -82,7 +75,6 @@ const basicSetting = {
     renderer,
     mesh,
     orbitControl,
-    commonParams,
 }
 
 
