@@ -7,6 +7,8 @@ import basicSetting from '../basicScene.js'
 * only for object3D whose name has been set.
 */
 
+// TODO: export selected snapshot Info
+
 const snapshotArr = []
 let currSnapshotIndex = 0
 const createSnapshot = () => {

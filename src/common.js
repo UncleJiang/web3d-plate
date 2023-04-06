@@ -8,7 +8,7 @@ const commonParams = {
 
 
 // common gui folder
-const commonFolder = gui.addFolder('Common')
+export const commonFolder = gui.addFolder('Common')
 commonFolder.add(commonParams, 'CONTAINER_RADIUS', 40, 120, 5)
 
 // add snapshotParams function

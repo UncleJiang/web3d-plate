@@ -15,7 +15,7 @@ const fog = () => {
     }
 
     const folder = gui.addFolder('Fog')
-    folder.addColor(params.fogColor, 'string').name('fog_color')
+    // folder.addColor(params.fogColor, 'string').name('fog_color')
     folder.add(params, 'fogNear', 0, 100, 10).name('fog_near')
     folder.add(params, 'fogFar', 0, 1000, 20).name('fog_far')
     folder.add(params, 'fogVisible')
@@ -23,7 +23,7 @@ const fog = () => {
     const onFogChange = (scene) => {
         if (params.fogVisible) {
             scene.fog = fog
-            scene.fog.color.set(params.fogColor.string)
+            // scene.fog.color.set(params.fogColor.string)
             scene.fog.near = params.fogNear
             scene.fog.far = params.fogFar
         } else {

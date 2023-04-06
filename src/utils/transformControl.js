@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js'
 
 import basicSetting from '../basicScene.js'
+import { commonFolder } from '../common.js'
 
 const {
     canvas,
@@ -78,6 +79,8 @@ window.addEventListener('dblclick', (e) => {
         transformControl.visible = true
     }
 })
+
+commonFolder.add(transformControl, 'visible')
 
 export default transformControl
 
