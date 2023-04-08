@@ -2,49 +2,30 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
-// import gui from './utils/gui.js'
-
 
 // canvas
 const canvas = document.querySelector('canvas.webgl')
 canvas.width = window.innerWidth
-canvas.height = window.innerHeight
+canvas.height = window.innerHeight + 100 // to enable the scroll animation of gsap
 
-
-const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight
-}
-window.addEventListener('resize', () =>
-{
-    // Update sizes
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
-
-    // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
-
-    // Update renderer
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-})
 
 
 // scene
 const scene = new THREE.Scene()
 
+// traversed into camera folder
+// // camera
+// const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight)
+// camera.name = 'mainCamera'
+// scene.add(camera)
+// camera.position.y = 19.7
+// camera.position.z = 40.7
 
-// camera
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight)
-camera.name = 'mainCamera'
-scene.add(camera)
-camera.position.y = 19.7
-camera.position.z = 40.7
+// // control
+// const orbitControl = new OrbitControls(camera, canvas)
+// orbitControl.update()
 
-// control
-const orbitControl = new OrbitControls(camera, canvas)
-orbitControl.update()
+// camera.bindedControl = orbitControl
 
 
 // renderer
@@ -70,10 +51,10 @@ btn.addEventListener('click', () => {
 const basicSetting = {
     canvas,
     scene,
-    camera,
+    // camera,
     renderer,
     mesh,
-    orbitControl,
+    // orbitControl,
 }
 
 

@@ -145,7 +145,7 @@ const sky = () => {
             if (needCalibrate && params.dayNightCycle == ONE_DAY) {
                 needCalibrate = false
                 let currDate = new Date(Date.now())
-                let progress = (currDate.getHours() * 60 + currDate.getMinutes) / 24 * 60
+                let progress = (currDate.getHours() * 60 + currDate.getMinutes()) / (12 * 60)
                 skyAnim.progress(progress) // 0.5 = half
             }
         } else {

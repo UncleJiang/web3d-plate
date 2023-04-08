@@ -2,17 +2,18 @@ import * as THREE from 'three'
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js'
 
 import basicSetting from '../basicScene.js'
-import { commonFolder } from '../common.js'
+import getCamera from '../cameras/camerasInjector.js'
 
 const {
     canvas,
     scene,
-    camera,
+    // camera,
     renderer,
     mesh,
-    orbitControl,
+    // orbitControl,
 } = basicSetting
 
+const camera = getCamera()
 const transformControl = new TransformControls(camera, canvas)
 
 transformControl.addEventListener('change', (e) => {
@@ -20,7 +21,8 @@ transformControl.addEventListener('change', (e) => {
 })
 
 transformControl.addEventListener('dragging-changed', (e) => {
-    orbitControl.enabled = !e.value
+    // console.log('transformcontrol drag disable', camera.name)
+    camera?.bindedControl && (camera.bindedControl.enabled = !e.value)
 })
 
 transformControl.attach(mesh)
@@ -80,7 +82,6 @@ window.addEventListener('dblclick', (e) => {
     }
 })
 
-commonFolder.add(transformControl, 'visible')
 
 export default transformControl
 
