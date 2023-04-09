@@ -82,7 +82,7 @@ class CurveEditor {
 
         for ( let i = 0; i < this.splinePointsLength; i ++ ) {
 
-            this.addSplineObject( this.positions[ i ] )
+            this.addSplineObject( this.positions[i] )
 
         }
 
@@ -90,14 +90,13 @@ class CurveEditor {
 
         for ( let i = 0; i < this.splinePointsLength; i ++ ) {
 
-            this.positions.push( this.splineHelperObjects[ i ].position )
+            this.positions.push( this.splineHelperObjects[i].position )
 
         }
 
         const geometry = new THREE.BufferGeometry()
         geometry.setAttribute( 'position', new THREE.BufferAttribute( new Float32Array( this.ARC_SEGMENTS * 3 ), 3 ) )
 
-        
 
         this.curve = new THREE.CatmullRomCurve3( this.positions )
         this.curve.curveType = 'chordal'
@@ -108,7 +107,6 @@ class CurveEditor {
         this.curve.mesh.castShadow = true
 
         scene.add(this.curve.mesh)
-
 
 
         this.load( [
@@ -208,7 +206,7 @@ class CurveEditor {
 
         for ( let i = 0; i < this.splinePointsLength; i ++ ) {
 
-            const p = this.splineHelperObjects[ i ].position
+            const p = this.splineHelperObjects[i].position
             strplace.push( `new THREE.Vector3(${p.x}, ${p.y}, ${p.z})` )
 
         }
@@ -235,7 +233,7 @@ class CurveEditor {
 
         for ( let i = 0; i < this.positions.length; i ++ ) {
 
-            this.positions[ i ].copy( new_positions[ i ] )
+            this.positions[i].copy( new_positions[i] )
 
         }
 

@@ -20,8 +20,8 @@ const trackCamera = () => {
     const curve = new THREE.CatmullRomCurve3(positions)
     curve.curveType = 'chordal'
 
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute( 'position', new THREE.BufferAttribute( new Float32Array( ARC_SEGMENTS * 3 ), 3 ) );
+    const geometry = new THREE.BufferGeometry()
+    geometry.setAttribute( 'position', new THREE.BufferAttribute( new Float32Array( ARC_SEGMENTS * 3 ), 3 ) )
     const material = new THREE.LineBasicMaterial({ color: '#ffff00' })
 
     curve.mesh = new THREE.Line(geometry, material)

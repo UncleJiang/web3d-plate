@@ -91,7 +91,7 @@ const sky = () => {
         duration: 30,
     }
     const morningSky = {
-        elevation: 2.27, 
+        elevation: 2.27,
         turbidity: 10,
         rayleigh: 2.27,
         mieCoefficient: 0.005,
@@ -115,8 +115,8 @@ const sky = () => {
         paused: true,
     })
     let skyAnim = t1.fromTo(skyParams, nightSky, nightSky)
-    .to(skyParams, morningSky)
-    .to(skyParams, daySky)
+        .to(skyParams, morningSky)
+        .to(skyParams, daySky)
 
     const params = {
         enabled: true,

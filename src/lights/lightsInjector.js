@@ -8,7 +8,7 @@ objects.push(directionalLight)
 
 export const addLights = () => {
     const scene = basicSetting.scene
-    
+
     if (!scene) return
 
     for (let obj of objects) {

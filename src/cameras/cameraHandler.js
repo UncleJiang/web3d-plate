@@ -9,7 +9,7 @@ let selectedCamera = mainCamera
 
 // Only the camera with a not-empty name is valid.
 export const changeCamera = (name) => {
-    
+
     if (!name) return
 
     const cameraNameArr = cameraArr.map((item) => item.name)

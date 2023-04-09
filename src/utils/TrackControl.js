@@ -45,7 +45,7 @@ class TrackControl {
         })
 
 
-        this.update = function () {
+        this.update = function() {
             if (!this.enabled) return
             window.addEventListener('mousemove', handleMouseMove)
             // window.addEventListener('wheel', handleMouseWheel)
@@ -66,7 +66,7 @@ class TrackControl {
             scope.camera.position.y = event.clientY / sizes.height - 0.5
             // renderer.render(scene, this.camera)
         }
-        
+
 
     }
 

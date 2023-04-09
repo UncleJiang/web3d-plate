@@ -41,11 +41,11 @@ class SphereObj {
 
     onMeshChange() {
         this._mesh.visible = this.params.visible
-        if (!!this.params.enableAnim) {
+        if (this.params.enableAnim) {
             // TODO: change the geometry's size correctly, renew one insteadly
             this._mesh.position.y = this.params.radius
         }
-    } 
+    }
 }
 
 export default SphereObj

@@ -13,7 +13,7 @@ cameraArr.push(trackCamera)
 const cameraNameArr = cameraArr.map((item) => item.name)
 
 const addCamera = () => {
-    for(let i = 0; i < cameraArr.length; i++) {
+    for (let i = 0; i < cameraArr.length; i++) {
         scene.add(cameraArr[i])
     }
 }
@@ -23,7 +23,6 @@ let params = { name: mainCamera.name }
 const folder = gui.addFolder('Camera Selector')
 folder.add(params, 'name', cameraNameArr)
     .onChange(changeCamera)
-
 
 
 export default addCamera

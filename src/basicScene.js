@@ -9,7 +9,6 @@ canvas.width = window.innerWidth
 canvas.height = window.innerHeight + 100 // to enable the scroll animation of gsap
 
 
-
 // scene
 const scene = new THREE.Scene()
 
