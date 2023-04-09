@@ -4,11 +4,13 @@ import basicSetting from './basicScene.js'
 import { addObjects, objectsOnChange } from './objects/objectsInjector.js'
 import { addLights, lightsOnChange } from './lights/lightsInjector.js'
 import transformControl from './utils/transformControl.js'
-import getCamera from './cameras/camerasInjector.js'
 import commonPanel from './commonPanel.js'
+import addCamera from './cameras/camerasInjector.js'
+import getCamera from './cameras/cameraHandler'
 
 commonPanel()
 
+addCamera()
 addObjects()
 addLights()
 

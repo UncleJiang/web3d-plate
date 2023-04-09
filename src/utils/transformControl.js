@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js'
 
 import basicSetting from '../basicScene.js'
-import getCamera from '../cameras/camerasInjector.js'
+import getCamera from '../cameras/cameraHandler.js'
 
 const {
     canvas,

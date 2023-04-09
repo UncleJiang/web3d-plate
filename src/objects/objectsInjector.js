@@ -33,7 +33,6 @@ export const addObjects = () => {
     if (!scene) return
 
     for (let obj of objects) {
-        console.log('haliluya: ', obj)
         obj?.mesh && scene.add(obj.mesh)
     }
 }

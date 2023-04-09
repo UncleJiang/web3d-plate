@@ -199,7 +199,6 @@ const terrain = () => {
         shader.vertexShader = shader.vertexShader.replace('#include <begin_vertex>', beginVertexText)
 
     }
-    console.log('hahahahah terrain')
     const mesh = new THREE.Mesh(geometry, material)
     mesh.name = 'terrain'
     mesh.scale.set(1.3, 1, 1)

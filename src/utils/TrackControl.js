@@ -35,7 +35,7 @@ class TrackControl {
                 markers: true,
             },
             onUpdate: () => {
-                console.log('=====target======', target)
+                console.log('===gsap=scroll=target======', target)
                 this.camera.position.copy(this.points[Math.round(target.index)])
                 this.camera.lookAt(this.cameraLookAt)
                 // renderer.render(scene, this.camera)
@@ -54,7 +54,7 @@ class TrackControl {
         this.dispose = function() {
             window.removeEventListener('mousemove', handleMouseMove)
             // window.removeEventListener('wheel', handleMouseWheel)
-            scope.anim().kill()
+            scope.anim.kill()
         }
 
         const scope = this
