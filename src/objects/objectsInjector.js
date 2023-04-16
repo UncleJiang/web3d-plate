@@ -2,26 +2,24 @@ import * as THREE from 'three'
 
 import basicSetting from '../basicScene.js'
 // import SphereObj from './basicMeshObj/SphereObj.js'
-
-
+// import sky from './advancedMeshObj/sky.js'
+// import timeGroup from './customObj/timeGroup/index.js'
 
 const objects = []
 
+
 /**
- * create objects
+ * create objects and add in objects array
+ * 
+ * code sample:
+ * `
+ * const sphere = new SphereObj()
+ * objects.push(sphere)
+ * 
+ * objects.push(sky)
+ * objects.push(timeGroup)
+ * `
  */
-
-// const sphere1 = new SphereObj()
-// objects.push(sphere1)
-
-
-// objects.push(terrain)
-// objects.push(sky)
-// objects.push(timeGroup)
-// objects.push(particles)
-
-// objects.push(fog) // TODO: 单独的对scene的属性进行设置
-
 
 
 export const addObjects = () => {

@@ -16,7 +16,7 @@ export const addLights = () => {
     for (let obj of objects) {
         console.log('addLight: ', obj)
         scene.add(obj.light)
-        scene.add(obj.target) // TODO: check 是否需要添加
+        scene.add(obj.target) // TODO: 验证是否需要添加
         scene.add(obj.helper)
         scene.add(obj.lightCamHelper)
     }
