@@ -16,7 +16,7 @@ const sky = () => {
     sky.name = 'sky'
     const sphereGeometry = new THREE.SphereGeometry(1)
     sky.geometry.copy(sphereGeometry)
-    sky.scale.setScalar(commonParams.CONTAINER_RADIUS - 10)
+    sky.scale.setScalar(commonParams.COMMON_PARAM_EXAMPLE) // TODO: 改成配置
 
     const sun = new THREE.Vector3(-20, 40, -10)
     sky.material.uniforms['sunPosition'].value.copy(sun)

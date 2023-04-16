@@ -3,12 +3,13 @@ import * as THREE from 'three'
 import gui from '../../utils/gui.js'
 import commonParams from '../../common.js'
 
+// TODO: 修改成类，使粒子的数目、尺寸及贴图，粒子运动函数可配置
 const particles = () => {
     const particlesGeometry = new THREE.BufferGeometry()
     const count = 800
 
     const positions = new Float32Array(count * 3)
-    const maxWidth = (commonParams.CONTAINER_RADIUS - 10) * 2
+    const maxWidth = (commonParams.COMMON_PARAM_EXAMPLE - 10) * 2 // TODO
 
     for (let i = 0; i < count * 3; i++)
     {

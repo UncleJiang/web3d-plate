@@ -7,10 +7,8 @@ import getCamera from '../cameras/cameraHandler.js'
 const {
     canvas,
     scene,
-    // camera,
     renderer,
     mesh,
-    // orbitControl,
 } = basicSetting
 
 const camera = getCamera()
@@ -21,7 +19,6 @@ transformControl.addEventListener('change', (e) => {
 })
 
 transformControl.addEventListener('dragging-changed', (e) => {
-    // console.log('transformcontrol drag disable', camera.name)
     camera?.bindedControl && (camera.bindedControl.enabled = !e.value)
 })
 

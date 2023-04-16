@@ -6,7 +6,7 @@ import transformControl from './utils/transformControl.js'
 // common gui folder
 const commonPanel = () => {
     const commonFolder = gui.addFolder('Common')
-    commonFolder.add(commonParams, 'CONTAINER_RADIUS', 40, 120, 5)
+    commonFolder.add(commonParams, 'COMMON_PARAM_EXAMPLE', 40, 120, 5)
 
     // add snapshotParams function
     commonFolder.add(snapshotParams, 'createSnapshot')
