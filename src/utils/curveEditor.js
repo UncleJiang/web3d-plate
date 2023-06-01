@@ -109,13 +109,18 @@ class CurveEditor {
         scene.add(this.curve.mesh)
 
 
-        this.load( [
-            new THREE.Vector3( -10, 0, 10 ),
-            new THREE.Vector3( -5, 5, 5 ),
-            new THREE.Vector3( 0, 0, 0 ),
-            new THREE.Vector3( 5, -5, 5 ),
-            new THREE.Vector3( 10, 0, 10 ),
-        ] )
+        this.load([
+            new THREE.Vector3(0, 19.7, 40.7),
+            new THREE.Vector3(8, 9, 37),
+            new THREE.Vector3(11, 12, 5),
+            new THREE.Vector3(-7, 18, 1),
+            new THREE.Vector3(-1.5, 21, 15),
+            new THREE.Vector3(-1, 26, 1),
+            new THREE.Vector3(-49, 55, 1.4),
+            new THREE.Vector3(-86, 98, 105),
+            new THREE.Vector3(-9, 15, 38),
+            new THREE.Vector3(0, 19.7, 40.7),
+        ])
 
         this.render()
 

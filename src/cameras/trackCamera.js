@@ -9,13 +9,18 @@ import gui from '../utils/gui.js'
 
 const trackCamera = () => {
     const positions = [
-        new THREE.Vector3( -10, 0, 10 ),
-        new THREE.Vector3( -5, 5, 5 ),
-        new THREE.Vector3( 0, 0, 0 ),
-        new THREE.Vector3( 5, -5, 5 ),
-        new THREE.Vector3( 10, 0, 10 )
+        new THREE.Vector3(0, 19.7, 40.7),
+        new THREE.Vector3(8, 9, 37), // lizard的位置
+        new THREE.Vector3(11, 12, 5),
+        new THREE.Vector3(-7, 18, 1),
+        new THREE.Vector3(-1.5, 21, 15),
+        new THREE.Vector3(-1, 26, 1),
+        new THREE.Vector3(-49, 55, 1.4),
+        new THREE.Vector3(-86, 98, 105),
+        new THREE.Vector3(-9, 15, 38),
+        new THREE.Vector3(0, 19.7, 40.7),
     ]
-    const ARC_SEGMENTS = 50
+    const ARC_SEGMENTS = 150
 
     const curve = new THREE.CatmullRomCurve3(positions)
     curve.curveType = 'chordal'
@@ -31,9 +36,13 @@ const trackCamera = () => {
     const { sizes } = commonParams
     const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
     camera.name = 'trackCamera'
+    camera.position.copy(new THREE.Vector3(0, 19.7, 40.7))
+
+    // TODO: set initial lookat
 
     const _trackControl = new TrackControl({
         camera: camera,
+        cameraLookAt: new THREE.Vector3(0, 19.4, 7.57),
         curve: curve,
         segmentNum: ARC_SEGMENTS,
     })
@@ -46,6 +55,7 @@ const trackCamera = () => {
         _trackControl.dispose()
         const trackControl = new TrackControl({
             camera: camera,
+            cameraLookAt: new THREE.Vector3(0, 19.4, 7.57),
             curve: curve,
             segmentNum: ARC_SEGMENTS,
         })

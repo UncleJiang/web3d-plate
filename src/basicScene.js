@@ -1,12 +1,19 @@
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import Stats from 'three/examples/jsm/libs/stats.module.js'
 
+const stats = new Stats()
+document.body.appendChild(stats.dom)
 
 // canvas
 const canvas = document.querySelector('canvas.webgl')
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight + 100 // to enable the scroll animation of gsap
+
+window.addEventListener('scroll', () => {
+    console.log('scrollY canvas: ', window.scrollY)
+})
 
 
 // scene
@@ -28,8 +35,9 @@ const scene = new THREE.Scene()
 
 
 // renderer
-const renderer = new THREE.WebGL1Renderer({ canvas: canvas })
-
+const renderer = new THREE.WebGLRenderer({ canvas: canvas }) // WebGL1Renderer cannot identify matnxm type
+renderer.shadowMap.enabled = true // enable the shadow
+renderer.shadowMap.type = THREE.BasicShadowMap
 
 // example object
 const geometry = new THREE.BoxGeometry(3, 3, 3)
@@ -53,6 +61,7 @@ const basicSetting = {
     // camera,
     renderer,
     mesh,
+    stats,
     // orbitControl,
 }
 

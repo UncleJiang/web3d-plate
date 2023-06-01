@@ -15,7 +15,7 @@ export default class TimeText {
 
     folder = null
     textGeometryParams = {
-        size: 4,
+        size: 5.5,
         height: 1,
         curveSegments: 12,
         bevelEnabled: true,

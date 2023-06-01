@@ -21,16 +21,17 @@ class TrackControl {
         this.cameraLookAt = props?.cameraLookAt || new THREE.Vector3(0, 0, 0)
 
         this.points = this.curve.getPoints(this.segmentNum)
-        // console.log('this.points: ', this.points)
+        console.log('this.points: ', this.points)
 
         let target = { index: 0 }
         this.anim = gsap.to(target, {
             index: this.segmentNum,
             duration: 5,
             scrollTrigger: {
-                trigger: 'canvas.webgl',
+                // trigger: 'canvas.webgl',
+                trigger: '.scroll-controller',
                 start: 'top top',
-                end: 'bottom bottom-=10', // 增多每像素移动所花费的step
+                end: 'bottom bottom', // 增多每像素移动所花费的step
                 scrub: 1,
                 markers: true,
             },
@@ -62,8 +63,8 @@ class TrackControl {
 
         function handleMouseMove(event) {
             // console.log('=======move========', scope.camera.position)
-            scope.camera.position.x = event.clientX / sizes.width - 0.5
-            scope.camera.position.y = event.clientY / sizes.height - 0.5
+            scope.camera.position.x += (event.clientX / sizes.width - 0.5) * 0.02
+            scope.camera.position.y -= (event.clientY / sizes.height - 0.5) * 0.02
             // renderer.render(scene, this.camera)
         }
 

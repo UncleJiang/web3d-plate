@@ -7,6 +7,7 @@ const timeGroup = new THREE.Group()
 timeGroup.name = 'timeGroup'
 
 const timeText = new TimeText('majorTime').getRenderGroup()
+timeText.scale.set(0.8, 0.8, 0.8)
 timeGroup.add(timeText)
 
 timeGroup.add(cubeFrame.mesh)

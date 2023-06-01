@@ -8,6 +8,8 @@ import sky from './customObj/sky.js'
 import fog from './customObj/fog.js'
 import timeGroup from './customObj/timeGroup/index.js'
 import particles from './customObj/particles.js'
+import gecko from './loadedModel/gecko.js'
+import manta from './loadedModel/manta.js'
 
 const objects = []
 
@@ -25,6 +27,8 @@ objects.push(timeGroup)
 objects.push(particles)
 
 objects.push(fog) // TODO: 单独的对scene的属性进行设置
+objects.push(gecko)
+objects.push(manta)
 
 
 export const addObjects = () => {
