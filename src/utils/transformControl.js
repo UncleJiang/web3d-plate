@@ -26,6 +26,7 @@ transformControl.addEventListener('dragging-changed', (e) => {
 })
 
 transformControl.attach(mesh)
+transformControl.visible = false
 
 window.addEventListener('keydown', (e) => {
     console.log('key:   ', e.key)

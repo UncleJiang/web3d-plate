@@ -25,14 +25,15 @@ export default class TimeText {
         bevelSegments: 4,
     }
     textMaterialParams = {
-        color: { string: '#ffffff' },
-        reflectivity: 0.5,
-        roughness: 0.5,
-        metalness: 0.5,
-        emissive: { string: '#ffffff' },
-        emissiveIntensity: 0.5,
-        opacity: 0.8,
-        transparent: true,
+        color: { string: '#948f84' },
+        // reflectivity: 0.5,
+        refractionRatio: 0.84,
+        // roughness: 0.5,
+        // metalness: 0.5,
+        // emissive: { string: '#ffffff' },
+        // emissiveIntensity: 0.5,
+        // opacity: 0.8,
+        // transparent: true,
     }
 
     geometry = null
@@ -76,13 +77,14 @@ export default class TimeText {
         this.folder.add(this.textGeometryParams, 'bevelSegments', 0, 32, 2).onChange(() => this.refreshText())
 
         this.folder.addColor(this.textMaterialParams.color, 'string').name('textColor').onChange(() => this.refreshMaterial())
-        this.folder.add(this.textMaterialParams, 'reflectivity', 0, 1, 0.1).onChange(() => this.refreshMaterial())
-        this.folder.add(this.textMaterialParams, 'roughness', 0, 1, 0.1).onChange(() => this.refreshMaterial())
-        this.folder.add(this.textMaterialParams, 'metalness', 0, 1, 0.1).onChange(() => this.refreshMaterial())
-        this.folder.addColor(this.textMaterialParams.emissive, 'string').name('emissive').onChange(() => this.refreshMaterial())
-        this.folder.add(this.textMaterialParams, 'emissiveIntensity', 0, 1, 0.1).onChange(() => this.refreshMaterial())
-        this.folder.add(this.textMaterialParams, 'opacity', 0, 1, 0.1).onChange(() => this.refreshMaterial())
-        this.folder.add(this.textMaterialParams, 'transparent').onChange(() => this.refreshMaterial())
+        this.folder.add(this.textMaterialParams, 'refractionRatio', 0, 1, 0.02).onChange(() => this.refreshMaterial())
+        // this.folder.add(this.textMaterialParams, 'reflectivity', 0, 1, 0.1).onChange(() => this.refreshMaterial())
+        // this.folder.add(this.textMaterialParams, 'roughness', 0, 1, 0.1).onChange(() => this.refreshMaterial())
+        // this.folder.add(this.textMaterialParams, 'metalness', 0, 1, 0.1).onChange(() => this.refreshMaterial())
+        // this.folder.addColor(this.textMaterialParams.emissive, 'string').name('emissive').onChange(() => this.refreshMaterial())
+        // this.folder.add(this.textMaterialParams, 'emissiveIntensity', 0, 1, 0.1).onChange(() => this.refreshMaterial())
+        // this.folder.add(this.textMaterialParams, 'opacity', 0, 1, 0.1).onChange(() => this.refreshMaterial())
+        // this.folder.add(this.textMaterialParams, 'transparent').onChange(() => this.refreshMaterial())
     }
 
     createText() {
@@ -93,7 +95,7 @@ export default class TimeText {
             ...this.textGeometryParams,
         })
         this.geometry.center()
-        this.material = this.material || new THREE.MeshPhysicalMaterial(this.textMaterialParams)
+        this.material = this.material || new THREE.MeshPhongMaterial({ color: '#948f84', refractionRatio: 0.84}) // new THREE.MeshPhysicalMaterial(this.textMaterialParams)
         this.textMesh = new THREE.Mesh(this.geometry, this.material)
         this.renderGroup.add(this.textMesh)
     }
@@ -107,13 +109,14 @@ export default class TimeText {
 
     refreshMaterial() {
         this.material.color.set(this.textMaterialParams.color.string)
-        this.material.reflectivity = this.textMaterialParams.reflectivity
-        this.material.roughness = this.textMaterialParams.roughness
-        this.material.metalness = this.textMaterialParams.metalness
-        this.material.emissive.set(this.textMaterialParams.emissive.string)
-        this.material.emissiveIntensity = this.textMaterialParams.emissiveIntensity
-        this.material.opacity = this.textMaterialParams.opacity
-        this.material.transparent = this.textMaterialParams.transparent
+        this.material.refractionRatio = this.textMaterialParams.refractionRatio
+        // this.material.reflectivity = this.textMaterialParams.reflectivity
+        // this.material.roughness = this.textMaterialParams.roughness
+        // this.material.metalness = this.textMaterialParams.metalness
+        // this.material.emissive.set(this.textMaterialParams.emissive.string)
+        // this.material.emissiveIntensity = this.textMaterialParams.emissiveIntensity
+        // this.material.opacity = this.textMaterialParams.opacity
+        // this.material.transparent = this.textMaterialParams.transparent
 
         this.textMesh.material = this.material
     }

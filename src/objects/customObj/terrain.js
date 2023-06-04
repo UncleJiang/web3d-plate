@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import commonParams from '../../common'
 
 import gui from '../../utils/gui'
 
@@ -276,10 +277,12 @@ const terrain = () => {
     #endif
     `
 
-    let isOceanMode = 1 // TODO  还有.customProgramCacheKey 需添加
 
+    material.customProgramCacheKey = function() { 
+		return commonParams.isOceanMode ? '1' : '0'
+	}
     material.onBeforeCompile = (shader) => {
-        console.log('material before compile > shader:  ', shader)
+        // console.log('material before compile > shader:  ', shader)
         shader.uniforms.uyMultiplier = uniformParams.uyMultiplier
         shader.uniforms.uyOffset = uniformParams.uyOffset
         shader.uniforms.uTime = uniformParams.uTime
@@ -288,9 +291,9 @@ const terrain = () => {
         shader.vertexShader = shader.vertexShader.replace('#include <beginnormal_vertex>', beginnormalVertexText)
         shader.vertexShader = shader.vertexShader.replace('#include <begin_vertex>', beginVertexText)
 
-        console.log('material before compile > shader fragment:  ', shader.fragmentShader)
+        // console.log('material before compile > shader fragment:  ', shader.fragmentShader)
 
-        if (isOceanMode) {
+        if (commonParams.isOceanMode) {
             shader.fragmentShader = shader.fragmentShader.replace('#include <common>', commonText)
             shader.fragmentShader = shader.fragmentShader.replace('#include <map_fragment>', causticsMapText)
         }
@@ -301,10 +304,11 @@ const terrain = () => {
     mesh.scale.set(1.3, 1, 1)
     mesh.receiveShadow = true
 
-    const clock = new THREE.Clock()
-    const onMeshChange = () => {
-        const elapsedTime = clock.getElapsedTime()
+    // const clock = new THREE.Clock()
+    const onMeshChange = (elapsedTime, deltaTime) => {
+        // const elapsedTime = clock.getElapsedTime()
         uniformParams.uTime.value = elapsedTime
+        material.needsUpdate = true
     }
 
     return { 

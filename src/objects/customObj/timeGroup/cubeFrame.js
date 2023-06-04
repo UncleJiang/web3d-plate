@@ -80,12 +80,13 @@ const cubeFrame = () => {
         radius: 0.2,
         radialSegment: 8
     }
+
     const cubeMaterial = new THREE.MeshBasicMaterial({
-        color: '#ffffff',
-        vertexColors: true,
-        side: THREE.DoubleSide,
-        transparent: true,
-        opacity: 0.7
+        color: '#fff9eb',
+        // vertexColors: true,
+        // side: THREE.DoubleSide,
+        // transparent: true,
+        // opacity: 0.7
     })
 
     const cubeGroup = new THREE.Group()

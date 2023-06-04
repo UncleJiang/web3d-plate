@@ -9,16 +9,17 @@ import fog from './customObj/fog.js'
 import timeGroup from './customObj/timeGroup/index.js'
 import particles from './customObj/particles.js'
 import gecko from './loadedModel/gecko.js'
-import manta from './loadedModel/manta.js'
+import fishes from './loadedModel/fishes.js'
+import littleFishes from './loadedModel/littleFishes.js'
 
 const objects = []
 
 // create objects
 const sphere1 = new SphereObj()
-objects.push(sphere1)
+// objects.push(sphere1)
 
 const sphere2 = new SphereObj()
-objects.push(sphere2)
+// objects.push(sphere2)
 
 objects.push(terrain)
 objects.push(sphereContainer)
@@ -28,7 +29,8 @@ objects.push(particles)
 
 objects.push(fog) // TODO: 单独的对scene的属性进行设置
 objects.push(gecko)
-objects.push(manta)
+objects.push(fishes)
+objects.push(littleFishes)
 
 
 export const addObjects = () => {
@@ -41,10 +43,10 @@ export const addObjects = () => {
     }
 }
 
-export const objectsOnChange = () => {
+export const objectsOnChange = (elapsedTime, deltaTime) => {
     const scene = basicSetting.scene
 
     for (let obj of objects) {
-        obj.onMeshChange?.(scene)
+        obj.onMeshChange?.(elapsedTime, deltaTime, scene)
     }
 }

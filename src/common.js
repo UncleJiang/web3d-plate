@@ -6,6 +6,13 @@ const commonParams = {
         width: window.innerWidth,
         height: window.innerHeight
     },
+    isOceanMode: false,
+    ambientLight: {
+        hue: 187,
+        saturation: 0.31,
+        lightness: 0.95,
+        intensity: 1.0,
+    }
 }
 
 

@@ -10,10 +10,10 @@ const directionalLight = () => {
 
     const lightParams = {
         directionalLightCoor: { x: 12, y: 20, z: 45 }, // { x: -18, y: 10, z: 35 },
-        directionalLightColor: { string: '#00d0ff' },
+        directionalLightColor: { string: '#33daff' },
         directionalLightIntensity: 0.5,
         lightToTarget: { x: 0, y: -2, z: -2 },
-        showLightHelper: true,
+        showLightHelper: false,
         resetShadow: false,
     }
 
@@ -34,7 +34,7 @@ const directionalLight = () => {
     directionalLightTarget.position.set(0, 0, 0)
 
 
-    const directionalLight = new THREE.DirectionalLight('#00d6ff', 0.5) // TODO: check 不能自动应用depthmatetial, shadow不正确
+    const directionalLight = new THREE.DirectionalLight('#33daff', 0.5) // TODO: check 不能自动应用depthmatetial, shadow不正确
     directionalLight.position.set(0, 20, 0)
     directionalLight.target = directionalLightTarget
     const helper = new THREE.DirectionalLightHelper(directionalLight, 5)
@@ -84,7 +84,7 @@ const directionalLight = () => {
 
         directionalLight.shadow.needsUpdate = true
 
-        shadowMapViewer.render(renderer)
+        // shadowMapViewer.render(renderer)
 
         // 叠加上caustics texture 到shadow map中，性能消耗严重，故舍弃该方式
         // if(lightParams.resetShadow) {
@@ -102,7 +102,7 @@ const directionalLight = () => {
         light: directionalLight,
         target: directionalLightTarget,
         helper: helper,
-        lightCamHelper: lightCamHelper,
+        // lightCamHelper: lightCamHelper,
         onLightChange: onLightChange,
     }
 

@@ -20,7 +20,7 @@ const fog = () => {
     folder.add(params, 'fogFar', 0, 1000, 20).name('fog_far')
     folder.add(params, 'fogVisible')
 
-    const onFogChange = (scene) => {
+    const onFogChange = (elapsedTime, deltaTime, scene) => {
         if (params.fogVisible) {
             scene.fog = fog
             // scene.fog.color.set(params.fogColor.string)

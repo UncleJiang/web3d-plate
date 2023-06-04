@@ -36,8 +36,8 @@ const scene = new THREE.Scene()
 
 // renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas }) // WebGL1Renderer cannot identify matnxm type
-renderer.shadowMap.enabled = true // enable the shadow
-renderer.shadowMap.type = THREE.BasicShadowMap
+// renderer.shadowMap.enabled = true // enable the shadow
+// renderer.shadowMap.type = THREE.BasicShadowMap
 
 // example object
 const geometry = new THREE.BoxGeometry(3, 3, 3)

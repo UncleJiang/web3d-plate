@@ -28,7 +28,13 @@ const sky = () => {
         mieDirectionalG: 0.7,
         elevation: 2,
         azimuth: 180,
-        up: { x: 0, y: 1, z: 0 }
+        up: { x: 0, y: 1, z: 0 },
+        isNight: false,
+        progress: 0,
+        ambientLightH: 187,
+        ambientLightS: 0.31,
+        ambientLightL: 0.95,
+        lightIntensity: 1.0,
     }
 
     const skyFolder = gui.addFolder('Sky')
@@ -79,6 +85,14 @@ const sky = () => {
 
         let { scene } = basicSetting
         scene?.fog?.color.set(getSunLight(skyParams.elevation))
+
+        // ambientLight control
+        commonParams.ambientLight.hue = skyParams.ambientLightH
+        commonParams.ambientLight.saturation = skyParams.ambientLightS
+        commonParams.ambientLight.lightness = skyParams.ambientLightL
+        commonParams.ambientLight.intensity = skyParams.lightIntensity
+        // ocean mode control
+        commonParams.isOceanMode = skyParams.isNight
     }
 
 
@@ -89,6 +103,12 @@ const sky = () => {
         mieCoefficient: 0.02,
         mieDirectionalG: 0.06,
         duration: 30,
+        isNight: true,
+         // #eef5f6 rgb(238, 245, 246) hsl(187, 0.31, 0.95)
+         ambientLightH: 187,
+         ambientLightS: 0.31,
+         ambientLightL: 0.95,
+         lightIntensity: 1.0,
     }
     const morningSky = {
         elevation: 2.27,
@@ -97,12 +117,24 @@ const sky = () => {
         mieCoefficient: 0.005,
         mieDirectionalG: 0.5,
         duration: 10,
+        isNight: false,
+        // #5f7b93    rgb(95, 123, 147) hsl(208, 0.21, 0.47)
+        ambientLightH: 208,
+        ambientLightS: 0.21,
+        ambientLightL: 0.47,
+        lightIntensity: 0.6,
     }
     const daySky = {
         elevation: 8.7,
         turbidity: 0,
         rayleigh: 3,
         duration: 20,
+        isNight: false,
+        // #dbf2ff  rgb(219, 242, 255) hsl(202, 1.0, 0.93)
+        ambientLightH: 202,
+        ambientLightS: 1.0,
+        ambientLightL: 0.93,
+        lightIntensity: 0.9,
     }
 
     let t1 = gsap.timeline({
@@ -125,6 +157,7 @@ const sky = () => {
     const folder = gui.addFolder('Sky-Time Setting')
     folder.add(params, 'enabled')
     folder.add(params, 'dayNightCycle', [ONE_DAY, ONE_HOUR, HALF_HOUR, ONE_MINUTE])
+    folder.add(skyParams, 'progress', 0, 1, 0.01).name('progress (when disabled)')
 
     let needCalibrate = true
     const paramsChanged = () => {
@@ -149,6 +182,7 @@ const sky = () => {
                 skyAnim.progress(progress) // 0.5 = half
             }
         } else {
+            skyAnim.progress(skyParams.progress)
             skyAnim.pause()
             needCalibrate = true
         }

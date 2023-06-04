@@ -89,7 +89,7 @@ const loadGecko = () => {
 
         const sphere = new THREE.Mesh(sphereGeometry, planeMaterial)
         sphere.castShadow = true
-        basicSetting.scene.add(sphere)
+        // basicSetting.scene.add(sphere)
         sphere.position.copy(geckoModel.mesh.position)
         sphere.position.x -= 4
         sphere.position.y += 3

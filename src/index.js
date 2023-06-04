@@ -39,13 +39,15 @@ const material = new THREE.MeshPhongMaterial({
 })
 // console.log('rt texture: ', renderTarget, renderTarget.texture)
 const tCube = new THREE.Mesh(geometry, material)
-scene.add(tCube)
+// scene.add(tCube)
 
 tCube.position.set(0, 20, 18)
 
 
 
 // animation
+const clock = new THREE.Clock()
+let currentTime = 0
 const anim = () => {
 // console.log('d-light-shadow: ', directionalLight.light.shadow)
 
@@ -59,11 +61,15 @@ const anim = () => {
     mesh.rotateX(0.01)
     mesh.rotateY(0.01)
 
-    objectsOnChange()
+    const elapsedTime = clock.getElapsedTime()
+    const deltaTime = elapsedTime - currentTime
+    currentTime = elapsedTime
+
+    objectsOnChange(elapsedTime, deltaTime)
     lightsOnChange()
 
-    material.map = getRenderTarget(directionalLight.light.shadow.map.texture, directionalLight.light.shadow.map.texture).texture
-    material.needsUpdate = true
+    // material.map = getRenderTarget(directionalLight.light.shadow.map.texture, directionalLight.light.shadow.map.texture).texture
+    // material.needsUpdate = true
 
 }
 
