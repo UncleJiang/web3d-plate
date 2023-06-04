@@ -6,6 +6,7 @@ import gui from '../utils/gui.js'
 
 const ambientLight = () => {
     const lightFolder = gui.addFolder('ambient-light')
+    lightFolder.close()
 
     const lightParams = {
         ambientLightCoor: { x: 0, y: 13, z: 0 },

@@ -38,6 +38,7 @@ const sky = () => {
     }
 
     const skyFolder = gui.addFolder('Sky')
+    skyFolder.close()
     skyFolder.add(skyParams, 'turbidity', 0.0, 20.0, 0.1)
     skyFolder.add(skyParams, 'rayleigh', 0.0, 4, 0.001)
     skyFolder.add(skyParams, 'mieCoefficient', 0.0, 0.1, 0.001)

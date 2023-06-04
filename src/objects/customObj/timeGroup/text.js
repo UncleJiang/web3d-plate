@@ -67,6 +67,7 @@ export default class TimeText {
 
     initGuiFolder() {
         this.folder = gui.addFolder(`TimeText_${this.name}`)
+        this.folder.close()
         this.folder.add(this.textGeometryParams, 'size', 0, 20, 0.5).onChange(() => this.refreshText())
         this.folder.add(this.textGeometryParams, 'height', 0, 20, 0.5).onChange(() => this.refreshText())
         this.folder.add(this.textGeometryParams, 'curveSegments', 0, 64, 4).onChange(() => this.refreshText())

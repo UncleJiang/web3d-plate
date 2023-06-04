@@ -1,0 +1,27 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html
+{
+    background: #1e1a20;
+}
+
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+#btn
+{
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+/*# sourceMappingURL=main.css.map*/

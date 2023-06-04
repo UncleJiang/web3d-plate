@@ -14,12 +14,13 @@ import littleFishes from './loadedModel/littleFishes.js'
 
 const objects = []
 
-// create objects
-const sphere1 = new SphereObj()
+/**
+ * create objects
+ */
+
+// const sphere1 = new SphereObj()
 // objects.push(sphere1)
 
-const sphere2 = new SphereObj()
-// objects.push(sphere2)
 
 objects.push(terrain)
 objects.push(sphereContainer)

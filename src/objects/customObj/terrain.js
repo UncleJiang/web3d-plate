@@ -18,6 +18,7 @@ const roughnessTexture = textureLoader.load('./textures/sand_1/roughness.jpg')
 const terrain = () => {
 
     const terrainFolder = gui.addFolder('Terrain')
+    terrainFolder.close()
 
     const geometry = new THREE.PlaneGeometry(90, 90, 1200, 1200) //比例： 3: 40
     const material = new THREE.MeshStandardMaterial({

@@ -15,6 +15,7 @@ const fog = () => {
     }
 
     const folder = gui.addFolder('Fog')
+    folder.close()
     // folder.addColor(params.fogColor, 'string').name('fog_color')
     folder.add(params, 'fogNear', 0, 100, 10).name('fog_near')
     folder.add(params, 'fogFar', 0, 1000, 20).name('fog_far')

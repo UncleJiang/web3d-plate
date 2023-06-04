@@ -7,6 +7,7 @@ import { ShadowMapViewer } from 'three/examples/jsm/utils/ShadowMapViewer.js'
 
 const directionalLight = () => {
     const lightFolder = gui.addFolder('light')
+    lightFolder.close()
 
     const lightParams = {
         directionalLightCoor: { x: 12, y: 20, z: 45 }, // { x: -18, y: 10, z: 35 },
@@ -14,7 +15,7 @@ const directionalLight = () => {
         directionalLightIntensity: 0.5,
         lightToTarget: { x: 0, y: -2, z: -2 },
         showLightHelper: false,
-        resetShadow: false,
+        // resetShadow: false,
     }
 
     lightFolder.add(lightParams.directionalLightCoor, 'x', -70, 70, 1).name('directionalLight_x')
@@ -65,7 +66,7 @@ const directionalLight = () => {
     // shadow map todo
     const oldShadow = directionalLight.shadow.clone(true)
 
-    lightFolder.add(lightParams, 'resetShadow')
+    // lightFolder.add(lightParams, 'resetShadow')
        
 
     // scene.add( new THREE.CameraHelper( directionalLight.shadow.camera ) );

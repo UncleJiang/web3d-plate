@@ -17,6 +17,7 @@ class SphereObj {
     constructor(name = 'sphere') {
         this.name = name
         this.folder = gui.addFolder(name)
+        this.folder.close()
         this.folder.add(this.params, 'radius', 1, 10, 0.5)
         this.folder.add(this.params, 'visible')
         this.folder.add(this.params, 'enableAnim')
