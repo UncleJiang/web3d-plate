@@ -1,6 +1,7 @@
 import basicSetting from '../basicScene.js'
 import ambientLight from './ambientLight.js'
 import directionalLight from './directionalLight.js'
+import ambientLight from './ambientLight.js'
 
 const objects = []
 
