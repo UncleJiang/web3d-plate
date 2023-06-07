@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import commonParams from '../common.js'
+import _ from 'lodash'
 
 import gui from '../utils/gui.js'
 
@@ -10,7 +10,6 @@ const ambientLight = () => {
 
     const lightParams = {
         ambientLightCoor: { x: 0, y: 13, z: 0 },
-        enableAdjustColor: false,
         ambientLightColor: { string: '#eef5f6' },
         ambientLightIntensity: 1.0,
         lightToTarget: { x: 0, y: -2, z: -2 },
@@ -25,7 +24,6 @@ const ambientLight = () => {
     lightFolder.add(lightParams.lightToTarget, 'y', -30, 30, 1).name('toTarget_dy')
     lightFolder.add(lightParams.lightToTarget, 'z', -70, 70, 1).name('toTarget_dz')
 
-    lightFolder.add(lightParams, 'enableAdjustColor')
     lightFolder.addColor(lightParams.ambientLightColor, 'string').name('ambientLight_color')
     lightFolder.add(lightParams, 'ambientLightIntensity', 0, 1, 0.1).name('dLight_intensity')
     // lightFolder.add(lightParams, 'showLightHelper')
@@ -46,17 +44,8 @@ const ambientLight = () => {
             lightParams.ambientLightCoor.y,
             lightParams.ambientLightCoor.z
         )
-        if (!lightParams.enableAdjustColor) {
-            const { hue, saturation, lightness, intensity } = commonParams.ambientLight
-            ambientLight.color.setHSL(_.round(hue / 360, 2), saturation, lightness)
-            ambientLight.intensity = intensity
-            let colorStr = `#${ambientLight.color.getHexString()}`
-            lightParams.ambientLightColor.string = colorStr
-            lightParams.intensity = intensity
-        } else {
-            ambientLight.color.set(lightParams.ambientLightColor.string)
-            ambientLight.intensity = lightParams.ambientLightIntensity    
-        }
+        ambientLight.color.set(lightParams.ambientLightColor.string)
+        ambientLight.intensity = lightParams.ambientLightIntensity    
 
         // helper.visible = lightParams.showLightHelper
     }
