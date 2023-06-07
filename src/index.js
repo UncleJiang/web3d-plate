@@ -7,6 +7,8 @@ import transformControl from './utils/transformControl.js'
 import commonPanel from './commonPanel.js'
 import addCamera from './cameras/camerasInjector.js'
 import getCamera from './cameras/cameraHandler'
+import directionalLight from './lights/directionalLight'
+
 
 commonPanel()
 
