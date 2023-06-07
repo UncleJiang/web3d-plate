@@ -26,6 +26,9 @@ const {
 scene.add(transformControl)
 
 console.log('index scene: ', scene)
+
+
+
 // animation
 const anim = () => {
     window.requestAnimationFrame(anim)

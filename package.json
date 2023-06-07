@@ -30,6 +30,7 @@
     "webpack-dev-server": "^4.13.1"
   },
   "dependencies": {
-    "gsap": "file:gsap-bonus.tgz"
+    "gsap": "file:gsap-bonus.tgz",
+    "lodash": "^4.17.21"
   }
 }

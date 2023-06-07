@@ -5,6 +5,7 @@ import gui from '../utils/gui.js'
 
 const directionalLight = () => {
     const lightFolder = gui.addFolder('light')
+    lightFolder.close()
 
     const lightParams = {
         directionalLightCoor: { x: 0, y: 13, z: 0 },
@@ -46,6 +47,7 @@ const directionalLight = () => {
             lightParams.directionalLightCoor.z
         )
         directionalLight.color.set(lightParams.directionalLightColor.string)
+        directionalLight.intensity = lightParams.directionalLightIntensity
         helper.visible = lightParams.showLightHelper
     }
 
